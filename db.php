@@ -1,12 +1,16 @@
 <?php
-$DB_HOST = 'localhost';
-$DB_NAME = 'u635821533_LbhOO';
-$DB_USER = 'u635821533_ykUFD';
-$DB_PASS = '2ADCO51#;k';
+$host = getenv('DB_HOST');
+$db = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$port = getenv('DB_PORT');
 
-$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-if ($conn->connect_error) {
-  die('DB connection error: ' . $conn->connect_error);
+$mysqli = new mysqli($host, $user, $pass, $db, $port);
+
+if ($mysqli->connect_error) {
+  die("DB connection failed: " . $mysqli->connect_error);
 }
-$conn->set_charset('utf8mb4');
+else {
+echo "connected to azule";
+}
 ?>
